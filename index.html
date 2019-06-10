@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>wise Math Game</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <script src="./script/promise.js"></script>
+    <script src="./script/fetch.js"></script>
+    <script src="./script/react.js"></script>
+    <script src="./script/react-dom.js"></script>
+    <script src="./script/react-router-dom.js"></script>
+    <script src="./script/babel.js"></script>
+    <script src="./script/TweenLite.js"></script>
+    <script src="./script/CSSPlugin.js"></script>
+    <script src="./script/TimelineLite.js"></script>
+
+    <link rel="stylesheet" href="./style/style.css">
+
+
+</head>
+
+<body>
+<div id="gameScene"></div>
+</body>
+<script>
+    window.wiseMathGameJSON = 'sampleJson';
+</script>
+<script type="text/babel" src="./script/reactResponsiveSpriteSheet.js"></script>
+<script type="text/babel" src="script/WiseMathGlobals.js"></script>
+<script type="text/babel" src="./script/wiseMathGame.js"></script>
+<script type="text/babel" src="./script/wiseResponsive.js"></script>
+
+<script type="text/babel">
+    'use strict';
+
+    loadJSON('./' + window.wiseMathGameJSON + '.json')
+        .then(meta => {
+            if (!meta) {
+                alert('[!] json 파일을 불러오는데 실패했습니다!');
+                return;
+            }
+
+            WiseMathGlobals.metaData = meta;
+            console.log('WiseMathGlobals: ', WiseMathGlobals.metaData);
+            // WiseMathGlobals.shuffleQuiz();
+
+        });
+
+    ReactDOM.render(
+        <WiseMathGame/>,
+        document.querySelector('#gameScene')
+    );
+
+</script>
+
+
+
+</html>
