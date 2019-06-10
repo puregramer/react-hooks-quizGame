@@ -11,7 +11,7 @@
 
 
 ## demo
- - [데모버전 보기](https://puregramer.github.io/react-racingWordGame/dist)
+ - [데모버전 보기](https://puregramer.github.io/react-hooks-quizGame/)
  
  ## notice
  - 해당 프로젝트는 flash로 개발된 숫자 퀴즈 게임을 html5버전으로 변환.
