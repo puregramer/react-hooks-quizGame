@@ -49,7 +49,10 @@ function Intro() {
             introTimeLine.restart();
         }
     });
-
+    
+    React.useEffect(() => {
+        setStartButton(true);
+    }, []);
     const onStartButton = () => {
 
         introTimeLine.add(TweenLite.to(charBoxObject.current, 1.5, {y: 30}));
@@ -83,27 +86,7 @@ function Intro() {
             {isStartButton &&
             <img className="introButton" src={`./assets/intro/introButton.png`} onClick={onStartButton}
                  alt="introButton"/>}
-            <Spritesheet
-                ref={introTitleObject}
-                className="introTitle"
-                image={`./assets/intro/introTitleSpriteSheet.png`}
-                widthFrame={1280}
-                heightFrame={300}
-                steps={70}
-                fps={24}
-                timeout={1000}
-                autoplay={true}
-                loop={false}
-                onEnterFrame={[
-                    {
-                        frame: 69,
-                        callback: (() => {
-                            console.log('pass by frame 69');
-                            setStartButton(true);
-                        })
-                    }
-                ]}
-            />
+           
             <div className="introCharBox" ref={charBoxObject}>
                 <ReactRouterDOM.Link to={'/ingame'}><img className="introCabbage" src={`./assets/intro/cabbage.png`}
                                                          alt="배추할아버지" onClick={onCabbageButton}/></ReactRouterDOM.Link>
